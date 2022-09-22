@@ -1,0 +1,7 @@
+---
+- name: Converge
+  hosts: all
+  tasks:
+    - name: "Include wandansible.skeleton_role"
+      ansible.builtin.include_role:
+        name: "wandansible.skeleton_role"
