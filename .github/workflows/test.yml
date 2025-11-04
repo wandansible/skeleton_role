@@ -37,7 +37,7 @@ jobs:
           python-version: "3.x"
       - name: Setup ansible
         run: |
-          if [[ "${{ matrix.ansible }}" == "latest" ]]; then
+          if [ "${{ matrix.ansible }}" == "latest" ]; then
             pip3 install ansible
           else
             pip3 install ansible~=${{ matrix.ansible }}
