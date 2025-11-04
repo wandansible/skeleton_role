@@ -35,19 +35,19 @@ jobs:
       - name: Setup python
         run: |
           apt update
-          apt -y install python3 python3-pip
+          apt -y install python3 python3-pipx
       - name: Setup ansible
         shell: bash
         run: |
           if [ "${{ matrix.ansible }}" == "latest" ]; then
-            pip3 install ansible
+            pipx install ansible
           else
-            pip3 install ansible~=${{ matrix.ansible }}
+            pipx install ansible~=${{ matrix.ansible }}
           fi
       - name: Setup ansible problem matchers
         uses: wandansible/action-ansible-problem-matchers@v1
       - name: Install test dependencies
-        run: pip3 install -r test-requirements.txt
+        run: pipx install -r test-requirements.txt
       - name: Run molecule
         run: molecule test
         env:
