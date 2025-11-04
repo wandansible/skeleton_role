@@ -50,6 +50,7 @@ jobs:
       - name: Install test dependencies
         run: /venv/bin/pip3 install -r test-requirements.txt
       - name: Run molecule
+        shell: bash
         run: |
           source /venv/bin/activate
           molecule test
